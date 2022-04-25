@@ -1,0 +1,23 @@
+.deleteIcon {
+  font-size: 24px;
+  color: #fff;
+  background-color: #efc81a;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.editeIconCard {
+  font-size: 24px;
+  color: #efc81a;
+  background-color: #fff;
+  margin-right: 10px;
+  padding: 2.5px;
+  border-radius: 3px;
+}
+
+.deleteIcon {
+  font-size: 24px;
+  color: #fff;
+  background-color: #efc81a;
+  border-radius: 3px;
+}

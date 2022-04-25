@@ -1,0 +1,38 @@
+.txtTitle {
+  font-size: 50px;
+  font-family: airbnb;
+}
+.txtColor {
+  color: #707070;
+  font-family: airbnb;
+}
+.footerList {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-around;
+  width: 50%;
+  padding: 12px;
+  list-style-type: none;
+}
+.footerLink {
+  text-decoration: none;
+  color: #707070;
+}
+
+.txtCreadit {
+  position: absolute;
+  bottom: 12px;
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .footerList {
+    width: 100%;
+  }
+  .txtCreadit {
+    bottom: -15px;
+    left: 40%;
+  }
+}

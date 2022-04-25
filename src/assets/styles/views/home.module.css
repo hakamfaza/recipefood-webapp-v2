@@ -1,0 +1,186 @@
+.containerHome {
+  position: relative;
+}
+
+.bgContent {
+  height: 100vh;
+  background-color: #fff;
+}
+
+.boxAction {
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContent {
+  font-size: 55px;
+  color: #2e266f;
+  width: 80%;
+  font-family: airbnb;
+  z-index: 5;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  z-index: 5;
+}
+
+.iconSearch {
+  font-size: 35px;
+  position: absolute;
+  left: 5px;
+  top: 25px;
+}
+
+.boxSearch {
+  width: 100%;
+}
+
+.searchInput {
+  height: 60px;
+  padding-left: 40px;
+  width: 80%;
+  font-size: 18px;
+  background-color: #efefef !important;
+  margin-top: 10px;
+  font-family: airbnb;
+  border: none;
+  padding-left: 40px !important;
+}
+
+.searchInput:focus {
+  box-shadow: none !important;
+  border: none;
+}
+
+.decoration {
+  position: relative;
+}
+
+.bgVector {
+  height: 300px;
+  margin-left: 30px;
+  width: 350px;
+}
+
+.vegetable {
+  position: absolute;
+  left: 20px;
+  top: -200px;
+  height: 500px;
+  width: auto;
+}
+
+.foodOne {
+  position: absolute;
+  left: 20px;
+  top: -100px;
+  height: 500px;
+  width: auto;
+}
+
+.titlePopular {
+  margin-top: 40px;
+  margin-left: 50px;
+  color: #2e266f;
+  border-left: #efc81a solid 10px;
+  padding-left: 20px;
+  font-family: airbnb;
+}
+
+.boxPopularOfYou {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxLatestRecipe {
+  margin-top: 80px;
+}
+
+.bgObject {
+  width: 350px;
+  height: 450px;
+  margin-left: -12px;
+  background-color: #efc81a;
+}
+
+.boxCard {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+}
+
+.aboutTitle {
+  color: #3f3a3a;
+  width: 400px;
+  font-weight: bold;
+}
+.textAbout {
+  color: #3f3a3a;
+  width: 370px;
+  margin-top: 20px;
+}
+.line {
+  border-bottom: solid 2px #6f6a40;
+  width: 100px;
+  margin-top: 15px;
+}
+
+.mbMedium {
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 576px) {
+  .boxAction {
+    top: 100px;
+    left: 50px;
+  }
+  .titleContent {
+    font-size: 55px;
+    color: #2e266f;
+    width: 90%;
+  }
+
+  .foodOne {
+    height: 250px;
+    width: auto;
+  }
+  .vegetable {
+    height: 350px;
+  }
+  .bgVector {
+    height: 100px;
+    width: 150px;
+  }
+  .bgObject {
+    width: 200px;
+    height: 250px;
+  }
+  .boxCard {
+    top: 30px;
+    left: 60px;
+  }
+  .aboutTitle {
+    margin-top: 100px;
+    font-size: 22px;
+  }
+  .textAbout {
+    width: 250px;
+  }
+  .boxAboutRecipe {
+    padding-left: 150px;
+  }
+}

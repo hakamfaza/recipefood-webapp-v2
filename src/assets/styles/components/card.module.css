@@ -1,0 +1,73 @@
+.card {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  width: 250px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.boxImage {
+  width: 90%;
+  height: 150px;
+  position: relative;
+}
+
+.image {
+  width: 240px;
+  height: 140px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.boxAction {
+  position: relative;
+  display: flex;
+  width: 250px;
+  height: 100px;
+  justify-content: end;
+  max-height: 100px;
+  justify-content: space-between;
+  padding: 10px;
+  /* background-color: red; */
+}
+
+.textBox {
+  position: relative;
+}
+
+.recipeTitle {
+  font-weight: 600;
+  color: rgb(54, 54, 54);
+  font-size: 16px;
+  max-width: 120px;
+}
+
+.date {
+  margin-top: -5px;
+  font-size: 10px;
+  color: rgb(124, 124, 124);
+}
+
+.button {
+  background-color: #ffffff;
+  color: #efc81a;
+  border: #efc81a 2px solid;
+  border-radius: 5px;
+  width: 80px;
+  height: 30px;
+}
+
+.button:hover {
+  background-color: #efc81a;
+  color: #fff;
+  border: none;
+}

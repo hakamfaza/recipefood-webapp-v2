@@ -1,0 +1,80 @@
+.cardMedium {
+  position: relative;
+  height: 450px;
+  width: 450px;
+  margin-top: 20px;
+}
+
+.cardImageMedium {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.cardTitleMedium {
+  position: absolute;
+  width: 105px;
+  left: 25px;
+  color: #fff;
+  bottom: 10px;
+  font-weight: 600;
+  font-family: airbnb;
+}
+
+.cardContainer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.cardImage {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.cardTitle {
+  position: absolute;
+  max-width: 170px;
+  left: 15px;
+  bottom: 10px;
+  font-weight: 600;
+  color: #fff;
+  font-family: airbnb;
+  /* background-color: #efc81a; */
+  padding: 1px 5px 1px 5px;
+  border-radius: 5px;
+}
+
+.boxOfTitle {
+  background-color: #fff;
+  height: 10px;
+  width: 100px;
+}
+
+@media screen and (max-width: 576px) {
+  .cardImageMedium {
+    width: 250px;
+    height: 250px;
+  }
+
+  .cardMedium {
+    height: 250px;
+    width: 250px;
+  }
+
+  .cardContainer,
+  .cardImage {
+    width: 250px;
+    height: 250px;
+  }
+  .cardContainer {
+    margin-left: 30px;
+  }
+}

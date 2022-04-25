@@ -1,0 +1,76 @@
+.container {
+  padding: 100px 50px 100px 50px;
+  justify-content: space-around !important;
+}
+
+.boxOfSearch {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBox {
+  position: absolute;
+  top: -15px;
+  transform: translate(0%, 50%);
+  border: #efc81a 1px solid;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchBox:hover > input {
+  width: 200px;
+  padding: 0 10px;
+}
+
+.searchBox:hover > .icon {
+  background: rgb(66, 66, 66);
+}
+
+.icon:hover {
+  transform: rotate(360deg) scale(0.8);
+}
+
+input {
+  width: 0;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: none;
+  font-size: 1.1rem;
+  transition: 0.5s ease;
+  line-height: 40px;
+  color: rgb(46, 46, 46);
+}
+
+.icon {
+  color: #efc81a;
+  float: right;
+  width: 20px;
+  font-size: 10px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.boxList {
+  position: relative;
+  /* margin-top: 5px; */
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 100px 15% 100px 15%;
+  }
+}

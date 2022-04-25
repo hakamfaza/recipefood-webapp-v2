@@ -1,0 +1,62 @@
+@font-face {
+  font-family: airbnb;
+  src: url('../font/AirbnbCereal.otf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.font {
+  font-family: airbnb !important;
+}
+
+.btn-shadow:focus {
+  box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -webkit-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  border: 1px solid #efc81a !important;
+}
+
+.check {
+  accent-color: #efc81a !important;
+}
+
+.button {
+  height: 50px;
+  width: 150px;
+  background-color: #efc81a;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.input:focus {
+  box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -webkit-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  border: 1px solid #efc81a !important;
+}
+
+.button:hover {
+  background-color: #adadad;
+}
+
+.outlineNone:focus {
+  border: none !important;
+  outline: none;
+  box-shadow: none !important;
+}
+
+@media screen and (max-width: 576px) {
+  .bgVidio {
+    display: none;
+  }
+  .none {
+    display: none;
+    height: 100vh;
+    background-color: #efc81a;
+  }
+}

@@ -1,0 +1,190 @@
+.detailContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.boxOfDetail {
+  width: 70%;
+  margin-top: 100px;
+}
+
+.detailImage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.titleDetailRecipe {
+  color: #efc81a;
+  font-weight: 600;
+  font-family: airbnb;
+}
+
+.boxImageDetail {
+  position: relative;
+}
+
+.imageRecipe {
+  width: 650px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.boxIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  padding: 5px;
+}
+
+.bookmarkIcon {
+  font-size: 40px;
+  color: #f6f5f4;
+  padding: 5px;
+  background-color: #efc81a;
+  border-radius: 5px;
+}
+
+.likeIcon {
+  font-size: 40px;
+  color: #efc81a;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.containerRecipe {
+  position: relative;
+  margin-top: 50px;
+}
+
+.titleRecipe {
+  color: #3f3a3a;
+  margin-top: 30px !important;
+  font-family: airbnb;
+}
+
+.ingredients {
+  white-space: pre-line;
+}
+
+.playButton {
+  width: 250px !important;
+  height: 50px;
+  background-color: #efc81a;
+  font-size: 24px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.containerComment {
+  margin-top: 100px;
+}
+
+.boxComment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textAreaComment {
+  background-color: #f6f5f4;
+  border: none;
+  padding: 20px 0 0 20px;
+  font-size: 20px;
+  min-height: 200px;
+  max-height: 200px;
+  width: 100%;
+  font-family: airbnb;
+}
+
+.textAreaComment:focus {
+  outline: none !important;
+}
+
+.buttonPost {
+  margin-top: 50px;
+  width: 300px;
+  height: 40px;
+  background-color: #efc81a !important;
+  border: none !important;
+  color: #fff;
+  border-radius: 3px;
+  box-shadow: none !important;
+}
+
+.boxUserComment {
+  position: relative;
+  margin-top: 30px;
+}
+
+.boxCommentUser {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.userComment {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.userAndComment {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleUser {
+  margin-top: 15px;
+  position: relative;
+  font-weight: bold;
+  font-family: airbnb;
+}
+
+.textComment {
+  margin-top: -5px;
+  font-family: airbnb;
+}
+
+@media screen and (max-width: 576px) {
+  .imageRecipe {
+    width: 310px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  .bookmarkIcon {
+    font-size: 30px;
+  }
+
+  .likeIcon {
+    font-size: 30px;
+  }
+  .buttonPost {
+    width: 150px;
+    height: 35px;
+  }
+  .playButton {
+    width: 150px !important;
+    height: 40px;
+    border-radius: 5px;
+  }
+  .containerRecipe {
+    margin-top: 10px;
+  }
+}
