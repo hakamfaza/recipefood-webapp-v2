@@ -21,7 +21,7 @@ import { FiEdit } from 'react-icons/fi';
 import Delete from '../components/Delete/Delete';
 import Edit from '../components/Edit/Edit';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
+import { getMyRecipe } from '../redux/actions/recipe';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -51,23 +51,18 @@ const Profile = () => {
     dispatch(getMyRecipe(getToken));
   }, []);
 
-  // const deleteRecipe = () => {
-  //   const getToken = localStorage.getItem('token');
-  //   axios
-  //     .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
-  //       headers: {
-  //         token: getToken
-  //       }
-  //     })
-  //     .then((response) => {
-  //       setRecipe(response.data.data);
-  //       navigate('/profile');
-  //     });
-  // };
-
-  const onSubmit = () => {
+  const deleteRecipe = () => {
     const getToken = localStorage.getItem('token');
-    deleteRecipe(getIdRecipe, getToken).then((response) => {});
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
+        headers: {
+          token: getToken
+        }
+      })
+      .then((response) => {
+        setRecipe(response.data.data);
+        navigate('/profile');
+      });
   };
 
   const toggleTab = (index) => {
