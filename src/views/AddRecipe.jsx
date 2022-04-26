@@ -1,11 +1,37 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar/Navbar';
 import styles from '../assets/styles/views/addrecipe.module.css';
 import '../assets/styles/style.css';
 import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
+import axios from 'axios';
 
 const AddRecipe = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('file', data.file);
+    // console.log(data.vidio);
+    console.log(data);
+    const getToken = localStorage.getItem('token');
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/recipe`, formData, {
+        headers: {
+          token: getToken,
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <Navbar />
@@ -14,30 +40,41 @@ const AddRecipe = () => {
           <div className="container">
             <div className="row">
               <div className={styles.boxAddRecipe}>
-                <div className="col-sm">
-                  <div className={styles.inputImage}></div>
-                  <input
-                    type="text"
-                    placeholder="Title"
-                    className={('outlineNone', styles.titleInput)}
-                  />
-                  <textarea
-                    name="ingredients"
-                    id="ingredients"
-                    cols="100"
-                    rows="10"
-                    placeholder="Ingredients"
-                    className={('outlineNone', styles.ingredientsInput)}
-                  ></textarea>
-                  <input
-                    type="text"
-                    placeholder="Title"
-                    className={('outlineNone', styles.titleInput)}
-                  />
-                  <ButtonComponents
-                    title="Post"
-                    className={styles.buttonPost}
-                  />
+                <div className="col-sm APP">
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* <div className={styles.inputImage}></div> */}
+                    <input
+                      type="file"
+                      className={styles.inputImage}
+                      // input
+                      {...register('file')}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Title"
+                      className={('outlineNone', styles.titleInput)}
+                      {...register('title')}
+                    />
+                    <textarea
+                      name="ingredients"
+                      id="ingredients"
+                      cols="100"
+                      rows="10"
+                      placeholder="Ingredients"
+                      className={('outlineNone', styles.ingredientsInput)}
+                      {...register('ingredients')}
+                    ></textarea>
+                    <input
+                      type="text"
+                      placeholder="Title"
+                      className={('outlineNone', styles.titleInput)}
+                      {...register('vidio')}
+                    />
+                    <ButtonComponents
+                      title="Post"
+                      className={styles.buttonPost}
+                    />
+                  </form>
                 </div>
               </div>
             </div>

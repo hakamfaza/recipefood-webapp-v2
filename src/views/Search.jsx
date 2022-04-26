@@ -15,11 +15,11 @@ const Search = () => {
   const navigate = useNavigate();
 
   const [queryParams] = useSearchParams();
-  const getQuery = queryParams.get('q');
+  const getQuery = queryParams.get('search');
   console.log(getQuery);
 
   // const [getRecipe, setGetRecipe] = useState([]);
-  const [searchRecipe, setSearchRecipe] = useState('');
+  const [searchRecipe, setSearchRecipe] = useState(getQuery);
 
   const getToken = localStorage.getItem('token');
   const getUser = localStorage.getItem('user');
@@ -61,8 +61,8 @@ const Search = () => {
     };
 
     navigate({
-      pathname: '/search',
-      search: `?q=${query.search}`
+      pathname: '/recipe',
+      search: `?search=${query.search}`
     });
   };
 

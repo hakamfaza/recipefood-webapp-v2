@@ -25,7 +25,7 @@ import { getRecipe } from '../redux/actions/recipe';
 const Home = () => {
   const navigate = useNavigate();
 
-  const [newRecipe, setNewRecipe] = useState([]);
+  // const [newRecipe, setNewRecipe] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState('');
 
   const getTitle = (e, field) => {
@@ -41,8 +41,8 @@ const Home = () => {
       search: searchRecipe.title
     };
     navigate({
-      pathname: '/search',
-      search: `?q=${query.search}`
+      pathname: '/recipe',
+      search: `?search=${query.search ? query.search : ''}`
     });
   };
 
@@ -57,15 +57,19 @@ const Home = () => {
   }, []);
 
   // New Recipe
+
+  const newRecipe = useSelector((state) => {
+    return state.recipe;
+  });
+
   useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/recipe?sortType=DESC&sortField=date`
-      )
-      .then((response) => {
-        setNewRecipe(response.data.data[0]);
-      });
+    dispatch(getRecipe());
   }, []);
+
+  const baru = newRecipe.data.map((e, i) => {
+    return e;
+  });
+  console.log(baru);
 
   return (
     <>

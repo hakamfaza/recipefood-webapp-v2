@@ -6,11 +6,11 @@ const initialState = {
 
 const myRecipeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_DETAIL_RECIPE_PENDING':
+    case 'GET_MY_RECIPE_PENDING':
       return { ...state, isLoading: true };
-    case 'GET_DETAIL_RECIPE_FULFILLED':
+    case 'GET_MY_RECIPE_FULFILLED':
       return { ...state, isLoading: false, data: action.payload.data.data };
-    case 'GET_DETAIL_RECIPE_REJECTED':
+    case 'GET_MY_RECIPE_REJECTED':
       return { ...state, isLoading: false, isError: true };
     default:
       return state;

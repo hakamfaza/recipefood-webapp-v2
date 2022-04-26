@@ -21,7 +21,7 @@ import { FiEdit } from 'react-icons/fi';
 import Delete from '../components/Delete/Delete';
 import Edit from '../components/Edit/Edit';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMyRecipe } from '../redux/actions/recipe';
+import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Profile = () => {
   const getRecipe = useSelector((state) => {
     return state.myRecipe;
   });
-  console.log(getMyRecipe);
+  console.log(getRecipe.data);
 
   useEffect(() => {
     const getToken = localStorage.getItem('token');
@@ -51,18 +51,23 @@ const Profile = () => {
     dispatch(getMyRecipe(getToken));
   }, []);
 
-  const deleteRecipe = () => {
+  // const deleteRecipe = () => {
+  //   const getToken = localStorage.getItem('token');
+  //   axios
+  //     .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
+  //       headers: {
+  //         token: getToken
+  //       }
+  //     })
+  //     .then((response) => {
+  //       setRecipe(response.data.data);
+  //       navigate('/profile');
+  //     });
+  // };
+
+  const onSubmit = () => {
     const getToken = localStorage.getItem('token');
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
-        headers: {
-          token: getToken
-        }
-      })
-      .then((response) => {
-        setRecipe(response.data.data);
-        navigate('/profile');
-      });
+    deleteRecipe(getIdRecipe, getToken).then((response) => {});
   };
 
   const toggleTab = (index) => {
@@ -134,39 +139,33 @@ const Profile = () => {
                       <div className="container">
                         <div className={styles.boxCardRecipe}>
                           <div className="row">
-                            {isLoading
-                              ? ''
-                              : getRecipe.data.map((item, index) => (
-                                  <div className="col-md-4" key={index}>
-                                    <div
-                                      className={styles.boxCardRecipeProfile}
-                                    >
-                                      <Link to={`/item/${item.id}`}>
-                                        <CardSmall
-                                          src={`${process.env.REACT_APP_API_URL}/image/${item.image}`}
-                                          title={item.title}
-                                          alt={item.title}
-                                          edit="/edit"
-                                        />
-                                      </Link>
-                                      <div className={styles.boxActionRecipe}>
-                                        <Link to="/edit">
-                                          <Edit />
-                                        </Link>
-                                        <Form
-                                          onClick={() => setIdRecipe(item.id)}
-                                        >
-                                          <Button
-                                            className={styles.btn}
-                                            onClick={() => deleteRecipe()}
-                                          >
-                                            <Delete />
-                                          </Button>
-                                        </Form>
-                                      </div>
-                                    </div>
+                            {getRecipe.data.map((item, index) => (
+                              <div className="col-md-4" key={index}>
+                                <div className={styles.boxCardRecipeProfile}>
+                                  <Link to={`/item/${item.id}`}>
+                                    <CardSmall
+                                      src={`${process.env.REACT_APP_API_URL}/image/${item.image}`}
+                                      title={item.title}
+                                      alt={item.title}
+                                      edit="/edit"
+                                    />
+                                  </Link>
+                                  <div className={styles.boxActionRecipe}>
+                                    <Link to="/edit">
+                                      <Edit />
+                                    </Link>
+                                    <Form onClick={() => setIdRecipe(item.id)}>
+                                      <Button
+                                        className={styles.btn}
+                                        onClick={() => deleteRecipe()}
+                                      >
+                                        <Delete />
+                                      </Button>
+                                    </Form>
                                   </div>
-                                ))}
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </div>
