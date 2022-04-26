@@ -1,5 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet
+} from 'react-router-dom';
 import Home from '../views/Home';
 import Detail from '../views/Detail';
 import Vidio from '../views/Vidio';
@@ -13,7 +19,7 @@ import EditRecipe from '../views/Editrecipe';
 const PrivateRoute = () => {
   const token = localStorage.getItem('token');
   if (token) {
-    // return
+    return <Outlet />;
   } else {
     return <Navigate to="/login" />;
   }

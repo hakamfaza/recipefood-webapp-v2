@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 import { Form } from 'reactstrap';
 import { BiSearch } from 'react-icons/bi';
 
@@ -16,31 +15,17 @@ const Search = () => {
 
   const [queryParams] = useSearchParams();
   const getQuery = queryParams.get('search');
-  console.log(getQuery);
 
-  // const [getRecipe, setGetRecipe] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState(getQuery);
-
-  const getToken = localStorage.getItem('token');
-  const getUser = localStorage.getItem('user');
 
   useEffect(() => {
     setSearchRecipe(getQuery);
   }, []);
 
-  console.log(searchRecipe);
-
-  if (!getToken || !getUser) {
-    navigate('/login');
-  }
-
   const dispatch = useDispatch();
   const recipe = useSelector((state) => {
     return state.recipe;
   });
-
-  console.log(recipe);
-  console.log(searchRecipe);
 
   useEffect(() => {
     dispatch(getRecipe(searchRecipe));

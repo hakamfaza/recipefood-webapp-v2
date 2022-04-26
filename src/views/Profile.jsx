@@ -44,10 +44,6 @@ const Profile = () => {
     const getUser = localStorage.getItem('user');
     setUser(JSON.parse(getUser));
 
-    if (!getToken || !getUser) {
-      navigate('/login');
-    }
-
     dispatch(getMyRecipe(getToken));
   }, []);
 

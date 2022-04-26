@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 import styles from '../assets/styles/views/detail.module.css';
 import Navbar from '../components/Navbar/Navbar';
@@ -13,7 +12,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../redux/actions/recipe';
 
 const Detail = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -22,12 +20,6 @@ const Detail = () => {
   });
 
   useEffect(() => {
-    const getToken = localStorage.getItem('token');
-    const getUser = localStorage.getItem('user');
-
-    if (!getToken || !getUser) {
-      navigate('/login');
-    }
     window.scrollTo(0, 0);
     dispatch(getDetail(id));
   }, []);
