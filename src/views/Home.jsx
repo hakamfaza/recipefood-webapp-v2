@@ -25,8 +25,8 @@ import { getRecipe } from '../redux/actions/recipe';
 const Home = () => {
   const navigate = useNavigate();
 
-  // const [newRecipe, setNewRecipe] = useState([]);
-  const [searchRecipe, setSearchRecipe] = useState('');
+  const [newRecipe, setNewRecipe] = useState([]);
+  const [searchRecipe, setSearchRecipe] = useState();
 
   const getTitle = (e, field) => {
     setSearchRecipe({
@@ -53,23 +53,17 @@ const Home = () => {
   });
 
   useEffect(() => {
-    dispatch(getRecipe(''));
+    dispatch(getRecipe('', 1));
   }, []);
 
   // New Recipe
-
-  const newRecipe = useSelector((state) => {
-    return state.recipe;
+  const getNewRecipe = useSelector((state) => {
+    return state.recipe.data[0];
   });
 
   useEffect(() => {
-    dispatch(getRecipe());
+    setNewRecipe(getNewRecipe);
   }, []);
-
-  const baru = newRecipe.data.map((e, i) => {
-    return e;
-  });
-  console.log(baru);
 
   return (
     <>

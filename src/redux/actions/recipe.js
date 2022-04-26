@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-export const getRecipe = (searchRecipe) => {
+export const getRecipe = (searchRecipe, getPage) => {
   const search = searchRecipe ? searchRecipe : '';
-  const limit = searchRecipe ? 8 : 6;
+  const limit = searchRecipe ? 8 : searchRecipe === '' ? 6 : 8;
+  const pageValue = getPage ? getPage : 1;
+  console.log(pageValue);
   return {
     type: 'GET_LIST_RECIPE',
     payload: axios({
-      url: `${process.env.REACT_APP_API_URL}/recipe?sortType=DESC&sortField=date&limit=${limit}&search=${search}`,
+      url: `${process.env.REACT_APP_API_URL}/recipe?page=${pageValue}&sortType=DESC&sortField=date&limit=${limit}&search=${search}`,
       method: 'GET'
     })
   };

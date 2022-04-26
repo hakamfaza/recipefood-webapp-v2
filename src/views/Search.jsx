@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Form } from 'reactstrap';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
+
+import { Form, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { BiSearch } from 'react-icons/bi';
 
 import Navbar from '../components/Navbar/Navbar';
@@ -15,6 +17,9 @@ const Search = () => {
 
   const [queryParams] = useSearchParams();
   const getQuery = queryParams.get('search');
+  const getPage = queryParams.get('page');
+
+  const [getPageValue, setPageValue] = useState(getPage);
 
   const [searchRecipe, setSearchRecipe] = useState(getQuery);
 
@@ -28,7 +33,7 @@ const Search = () => {
   });
 
   useEffect(() => {
-    dispatch(getRecipe(searchRecipe));
+    dispatch(getRecipe(searchRecipe, getPage));
   }, []);
 
   const getInput = (e, field) => {
@@ -50,6 +55,13 @@ const Search = () => {
       search: `?search=${query.search}`
     });
   };
+
+  const onPage = (e) => {
+    navigate(`?search=${getQuery}&page=${getPageValue}`);
+  };
+
+  // console.log(recipe.pagination.totalPage);
+  console.log(getPageValue);
 
   return (
     <>
@@ -86,6 +98,25 @@ const Search = () => {
               );
             })}
           </div>
+        </div>
+        <div className={styles.boxOfPagiantion}>
+          <Pagination size="md" aria-label="Page">
+            <PaginationItem>
+              <PaginationLink previous />
+            </PaginationItem>
+            <PaginationItem onClick={() => onPage()}>
+              <PaginationLink onClick={() => setPageValue(1)}>1</PaginationLink>
+            </PaginationItem>
+            <PaginationItem onClick={() => onPage()}>
+              <PaginationLink onClick={() => setPageValue(2)}>2</PaginationLink>
+            </PaginationItem>
+            <PaginationItem onClick={() => onPage()}>
+              <PaginationLink onClick={() => setPageValue(3)}>3</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink next />
+            </PaginationItem>
+          </Pagination>
         </div>
       </div>
     </>

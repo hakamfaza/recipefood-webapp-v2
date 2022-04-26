@@ -1,7 +1,8 @@
 const initialState = {
   data: [],
   isLoading: false,
-  isError: false
+  isError: false,
+  pagination: []
 };
 
 const recipeReducer = (state = initialState, action) => {
@@ -9,7 +10,12 @@ const recipeReducer = (state = initialState, action) => {
     case 'GET_LIST_RECIPE_PENDING':
       return { ...state, isLoading: true };
     case 'GET_LIST_RECIPE_FULFILLED':
-      return { ...state, isLoading: false, data: action.payload.data.data };
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload.data.data,
+        pagination: action.payload.data.pagination
+      };
     case 'GET_LIST_RECIPE_REJECTED':
       return { ...state, isLoading: false, isError: true };
     default:

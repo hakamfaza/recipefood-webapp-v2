@@ -1,6 +1,7 @@
 .container {
   padding: 100px 50px 100px 50px;
   justify-content: space-around !important;
+  position: relative;
 }
 
 .boxOfSearch {
@@ -67,6 +68,15 @@ input {
 .boxList {
   position: relative;
   /* margin-top: 5px; */
+}
+
+.boxOfPagiantion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 90%;
+  align-self: flex-end;
 }
 
 @media screen and (max-width: 576px) {
