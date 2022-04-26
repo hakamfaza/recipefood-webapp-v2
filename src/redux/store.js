@@ -12,7 +12,10 @@ const persistConfig = {
   storage
 };
 
-const middleware = applyMiddleware(logger, promisMiddleware);
-const store = createStore(rootReducers, middleware);
+const persistedReducer = persistReducer(persistConfig, rootReducers);
 
-export default store;
+const middleware = applyMiddleware(logger, promisMiddleware);
+const store = createStore(persistedReducer, middleware);
+const persistor = persistStore(store);
+
+export { store, persistor };
