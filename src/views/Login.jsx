@@ -10,6 +10,7 @@ import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 
 import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
+import { login } from '../redux/actions/auth';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,18 +34,12 @@ const Login = () => {
       email: form.email,
       password: form.password
     };
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/login`, body, {})
+
+    login(body)
       .then((response) => {
         localStorage.setItem('token', response.data.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.data.user));
-        setUser(response.data.data.user.name);
         navigate(`/profile/${getUser}`);
-        // if (response.data.status === 'failed') {
-        //   console.log('failed');
-        // } else {
-        //   console.log('success');
-        // }
       })
       .catch((err) => {
         console.log(err);

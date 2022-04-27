@@ -16,3 +16,16 @@ export const register = (formData) => {
       });
   });
 };
+
+export const login = (body) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/login`, body, {})
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
