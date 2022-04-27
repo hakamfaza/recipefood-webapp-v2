@@ -154,7 +154,7 @@ const Profile = () => {
                                   />
                                 </Link>
                                 <div className={styles.boxActionRecipe}>
-                                  <Link to="/edit">
+                                  <Link to={`/edit/${item.id}`}>
                                     <Edit />
                                   </Link>
                                   <Form onClick={() => setIdRecipe(item.id)}>

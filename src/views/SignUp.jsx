@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
@@ -9,14 +8,11 @@ import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
 
-import { useNavigate } from 'react-router-dom';
 import { register } from '../redux/actions/auth';
 
 // import user from '../assets/img/user.png';
 
 const SignUp = () => {
-  const navigate = useNavigate();
-
   // set default
   const [form, setForm] = useState({
     image: '',

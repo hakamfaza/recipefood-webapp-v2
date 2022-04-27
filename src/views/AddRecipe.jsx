@@ -5,7 +5,9 @@ import styles from '../assets/styles/views/addrecipe.module.css';
 import '../assets/styles/style.css';
 import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+import { addRecipe } from '../redux/actions/recipe';
 
 const AddRecipe = () => {
   const { register, handleSubmit } = useForm();
@@ -25,15 +27,9 @@ const AddRecipe = () => {
       console.log(key);
     }
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/recipe`, formData, {
-        headers: {
-          token: getToken,
-          'Content-Type': 'multipart/form-data'
-        }
-      })
-      .then((res) => {
-        console.log(res.data);
+    addRecipe(formData, getToken)
+      .then((response) => {
+        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -84,10 +80,12 @@ const AddRecipe = () => {
                       className={('outlineNone', styles.titleInput)}
                       {...register('date')}
                     />
-                    <ButtonComponents
-                      title="Post"
-                      className={styles.buttonPost}
-                    />
+                    <Link to="/profile">
+                      <ButtonComponents
+                        title="Post"
+                        className={styles.buttonPost}
+                      />
+                    </Link>
                   </form>
                 </div>
               </div>

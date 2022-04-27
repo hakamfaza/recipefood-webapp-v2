@@ -65,3 +65,39 @@ export const deleteRecipe = (getIdRecipe, getToken) => {
       });
   });
 };
+
+export const addRecipe = (formData, getToken) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/recipe`, formData, {
+        headers: {
+          token: getToken,
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const upadateRecipe = (formData, getToken, id) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put(`${process.env.REACT_APP_API_URL}/recipe/${id}`, formData, {
+        headers: {
+          token: getToken,
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};

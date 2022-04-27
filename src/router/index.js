@@ -41,7 +41,7 @@ const router = () => {
         <Route path="/recipe" element={<PrivateRoute />}>
           <Route index element={<Search />} />
         </Route>
-        <Route path="/edit" element={<PrivateRoute />}>
+        <Route path="/edit/:id" element={<PrivateRoute />}>
           <Route index element={<EditRecipe />} />
         </Route>
         <Route path="vidio" element={<PrivateRoute />}>
