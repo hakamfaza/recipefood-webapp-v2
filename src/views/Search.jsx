@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Form, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { BiSearch } from 'react-icons/bi';

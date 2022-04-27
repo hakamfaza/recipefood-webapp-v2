@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import axios from 'axios';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
@@ -18,8 +17,6 @@ const Login = () => {
     email: '',
     password: ''
   });
-
-  const [getUser, setUser] = useState([]);
 
   const onChangeInput = (e, field) => {
     setForm({
@@ -39,7 +36,7 @@ const Login = () => {
       .then((response) => {
         localStorage.setItem('token', response.data.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.data.user));
-        navigate(`/profile/${getUser}`);
+        navigate(`/profile`);
       })
       .catch((err) => {
         console.log(err);
