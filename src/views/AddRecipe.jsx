@@ -12,7 +12,7 @@ const AddRecipe = () => {
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    // formData.append('image', data.file);
+    formData.append('image', data.image[0]);
     formData.append('title', data.title);
     formData.append('ingredients', data.ingredients);
     formData.append('vidio', data.vidio);
@@ -20,6 +20,10 @@ const AddRecipe = () => {
     // console.log(data.file);
     // console.log(data);
     const getToken = localStorage.getItem('token');
+
+    for (var key of formData) {
+      console.log(key);
+    }
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/recipe`, formData, {
