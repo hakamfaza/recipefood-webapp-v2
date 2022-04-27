@@ -11,6 +11,7 @@ import { getDetail, upadateRecipe } from '../redux/actions/recipe';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
+
   const { id } = useParams();
   const { register, handleSubmit } = useForm();
 
@@ -57,7 +58,6 @@ const AddRecipe = () => {
               <div className={styles.boxAddRecipe}>
                 <div className="col-sm APP">
                   <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* <div className={styles.inputImage}></div> */}
                     <input
                       type="file"
                       className={styles.inputImage}
@@ -66,7 +66,7 @@ const AddRecipe = () => {
                     <input
                       type="text"
                       placeholder="Title"
-                      // value={recipe.data.title}
+                      defaultValue={recipe.data.title}
                       className={('outlineNone', styles.titleInput)}
                       {...register('title')}
                     />
@@ -76,7 +76,7 @@ const AddRecipe = () => {
                       cols="100"
                       rows="10"
                       placeholder="Ingredients"
-                      value={recipe.data.ingredients}
+                      defaultValue={recipe.data.ingredients}
                       className={('outlineNone', styles.ingredientsInput)}
                       {...register('ingredients')}
                     ></textarea>
@@ -84,14 +84,14 @@ const AddRecipe = () => {
                       type="text"
                       placeholder="Vidio"
                       className={('outlineNone', styles.titleInput)}
-                      value={recipe.data.vidio}
+                      defaultValue={recipe.data.vidio}
                       {...register('vidio')}
                     />
                     <input
                       type="text"
                       placeholder="date"
                       className={('outlineNone', styles.titleInput)}
-                      value={recipe.data.date}
+                      defaultValue={recipe.data.date}
                       {...register('date')}
                     />
                     {/* <Link to="/profile"> */}
