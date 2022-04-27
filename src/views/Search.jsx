@@ -32,7 +32,7 @@ const Search = () => {
   });
 
   useEffect(() => {
-    dispatch(getRecipe(searchRecipe, getPageValue));
+    dispatch(getRecipe(searchRecipe, getPageValue, 8));
   }, []);
 
   const getInput = (e, field) => {
@@ -57,7 +57,8 @@ const Search = () => {
 
   const onPage = (Page) => {
     setPageValue(Page);
-    return navigate(`?search=${getQuery}&page=${Page}`);
+    navigate(`?search=${getQuery}&page=${Page}`);
+    getRecipe(searchRecipe, getPageValue, 8);
   };
 
   return (

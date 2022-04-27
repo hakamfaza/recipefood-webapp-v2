@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -53,7 +52,7 @@ const Home = () => {
   });
 
   useEffect(() => {
-    dispatch(getRecipe('', 1));
+    dispatch(getRecipe('', 1, 6));
   }, []);
 
   // New Recipe

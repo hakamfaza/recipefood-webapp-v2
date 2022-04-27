@@ -9,10 +9,12 @@ import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
 
 import { register } from '../redux/actions/auth';
+import { useNavigate } from 'react-router-dom';
 
 // import user from '../assets/img/user.png';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   // set default
   const [form, setForm] = useState({
     image: '',
@@ -63,6 +65,7 @@ const SignUp = () => {
       register(formData)
         .then((response) => {
           console.log(response.data);
+          navigate('/login');
         })
         .catch((err) => {
           console.log(err);

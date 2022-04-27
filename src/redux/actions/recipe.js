@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-export const getRecipe = (searchRecipe, getPage) => {
+export const getRecipe = (searchRecipe, getPage, limit) => {
   const search = searchRecipe ? searchRecipe : '';
-  const limit = searchRecipe ? 8 : searchRecipe === '' ? 6 : 8;
   const pageValue = getPage ? getPage : 1;
   console.log(pageValue);
   return {
