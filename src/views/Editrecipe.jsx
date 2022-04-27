@@ -6,8 +6,8 @@ import styles from '../assets/styles/views/addrecipe.module.css';
 import '../assets/styles/style.css';
 import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
-import { Link, useParams } from 'react-router-dom';
-import { addRecipe, getDetail, upadateRecipe } from '../redux/actions/recipe';
+import { useParams } from 'react-router-dom';
+import { getDetail, upadateRecipe } from '../redux/actions/recipe';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ const AddRecipe = () => {
                     <input
                       type="text"
                       placeholder="Title"
-                      value={recipe.data.title}
+                      // value={recipe.data.title}
                       className={('outlineNone', styles.titleInput)}
                       {...register('title')}
                     />

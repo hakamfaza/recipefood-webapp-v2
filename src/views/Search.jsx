@@ -61,9 +61,6 @@ const Search = () => {
     return navigate(`?search=${getQuery}&page=${Page}`);
   };
 
-  // console.log(recipe.pagination.totalPage);
-  // console.log(getPageValue);
-
   return (
     <>
       <Navbar />

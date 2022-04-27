@@ -5,11 +5,13 @@ import styles from '../assets/styles/views/addrecipe.module.css';
 import '../assets/styles/style.css';
 import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { addRecipe } from '../redux/actions/recipe';
 
 const AddRecipe = () => {
+  const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -30,6 +32,7 @@ const AddRecipe = () => {
     addRecipe(formData, getToken)
       .then((response) => {
         console.log(response.data);
+        navigate('/profile');
       })
       .catch((err) => {
         console.log(err);
@@ -80,12 +83,11 @@ const AddRecipe = () => {
                       className={('outlineNone', styles.titleInput)}
                       {...register('date')}
                     />
-                    <Link to="/profile">
-                      <ButtonComponents
-                        title="Post"
-                        className={styles.buttonPost}
-                      />
-                    </Link>
+                    <ButtonComponents
+                      title="Post"
+                      className={styles.buttonPost}
+                      onSubmit={() => onSubmit()}
+                    />
                   </form>
                 </div>
               </div>

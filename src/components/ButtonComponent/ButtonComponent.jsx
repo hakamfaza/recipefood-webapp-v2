@@ -10,6 +10,7 @@ const ButtonComponents = (params) => {
         style={(styles.buttonSubmit, params.style)}
         type="submit"
         className={('btn-shadow', params.className)}
+        onSubmit={params.onSubmit}
       >
         {params.title}
       </Button>
