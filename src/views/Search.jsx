@@ -33,7 +33,7 @@ const Search = () => {
   });
 
   useEffect(() => {
-    dispatch(getRecipe(searchRecipe, getPage));
+    dispatch(getRecipe(searchRecipe, getPageValue));
   }, []);
 
   const getInput = (e, field) => {
@@ -56,12 +56,13 @@ const Search = () => {
     });
   };
 
-  const onPage = (e) => {
-    navigate(`?search=${getQuery}&page=${getPageValue}`);
+  const onPage = (Page) => {
+    setPageValue(Page);
+    return navigate(`?search=${getQuery}&page=${Page}`);
   };
 
   // console.log(recipe.pagination.totalPage);
-  console.log(getPageValue);
+  // console.log(getPageValue);
 
   return (
     <>
@@ -104,14 +105,14 @@ const Search = () => {
             <PaginationItem>
               <PaginationLink previous />
             </PaginationItem>
-            <PaginationItem onClick={() => onPage()}>
-              <PaginationLink onClick={() => setPageValue(1)}>1</PaginationLink>
+            <PaginationItem onClick={() => onPage(1)}>
+              <PaginationLink>1</PaginationLink>
             </PaginationItem>
-            <PaginationItem onClick={() => onPage()}>
-              <PaginationLink onClick={() => setPageValue(2)}>2</PaginationLink>
+            <PaginationItem onClick={() => onPage(2)}>
+              <PaginationLink>2</PaginationLink>
             </PaginationItem>
-            <PaginationItem onClick={() => onPage()}>
-              <PaginationLink onClick={() => setPageValue(3)}>3</PaginationLink>
+            <PaginationItem onClick={() => onPage(3)}>
+              <PaginationLink>3</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationLink next />

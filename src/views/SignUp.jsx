@@ -10,6 +10,7 @@ import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
 
 import { useNavigate } from 'react-router-dom';
+import { register } from '../redux/actions/auth';
 
 // import user from '../assets/img/user.png';
 
@@ -18,13 +19,15 @@ const SignUp = () => {
 
   // set default
   const [form, setForm] = useState({
-    photo: '',
+    image: '',
     name: '',
     email: '',
     phone: '',
     password: '',
     newPassword: ''
   });
+
+  const [image, setImage] = useState('');
 
   // when input is typed
   const onChangeInput = (e, field) => {
@@ -33,28 +36,37 @@ const SignUp = () => {
       [field]: e.target.value
     });
   };
-  console.log(form);
+  const onChangeImage = (e, field) => {
+    setImage({ image: e.target.files[0] });
+  };
+
   // when submitted
   const onSubmit = (e) => {
+    console.log(image);
     e.preventDefault();
 
     if (form.password !== form.newPassword) {
       alert('password is not the same, please check again!');
     } else {
-      const bodyFormData = new FormData();
+      const formData = new FormData();
 
-      for (const key in form) {
-        bodyFormData.append(key, form[key]);
+      // for (const key in form) {
+      //   bodyFormData.append(key, form[key]);
+      // }
+
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('phone', form.phone);
+      formData.append('password', form.password);
+      formData.append('image', image.image);
+
+      for (var key of formData) {
+        console.log(key);
       }
-      console.log(bodyFormData);
-      axios
-        .post(`${process.env.REACT_APP_API_URL}/register`, bodyFormData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
-        })
+
+      register(formData)
         .then((response) => {
-          // localStorage.setItem('token', response.data.data.token);
-          // localStorage.setItem('user', JSON.stringify(response.data.data.user));
-          // navigate('/login');
+          console.log(response.data);
         })
         .catch((err) => {
           console.log(err);
@@ -82,13 +94,10 @@ const SignUp = () => {
                 className={styles.formWidth}
                 onSubmit={(e) => onSubmit(e)}
               >
-                <InputAuth
-                  title="Photo"
-                  for="photo"
-                  id="photo"
-                  name="photo"
+                <input
                   type="file"
-                  onChange={(e) => onChangeInput(e, 'photo')}
+                  onChange={(e) => onChangeImage(e)}
+                  className="form-control"
                 />
                 <InputAuth
                   title="Name"

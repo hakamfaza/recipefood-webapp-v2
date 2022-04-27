@@ -10,18 +10,22 @@ import axios from 'axios';
 const AddRecipe = () => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     const formData = new FormData();
-    formData.append('file', data.file);
-    // console.log(data.vidio);
-    console.log(data);
+    // formData.append('image', data.file);
+    formData.append('title', data.title);
+    formData.append('ingredients', data.ingredients);
+    formData.append('vidio', data.vidio);
+    formData.append('date', data.date);
+    // console.log(data.file);
+    // console.log(data);
     const getToken = localStorage.getItem('token');
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/recipe`, formData, {
         headers: {
           token: getToken,
-          'Access-Control-Allow-Origin': '*'
+          'Content-Type': 'multipart/form-data'
         }
       })
       .then((res) => {
@@ -47,7 +51,7 @@ const AddRecipe = () => {
                       type="file"
                       className={styles.inputImage}
                       // input
-                      {...register('file')}
+                      {...register('image')}
                     />
                     <input
                       type="text"
@@ -66,9 +70,15 @@ const AddRecipe = () => {
                     ></textarea>
                     <input
                       type="text"
-                      placeholder="Title"
+                      placeholder="Vidio"
                       className={('outlineNone', styles.titleInput)}
                       {...register('vidio')}
+                    />
+                    <input
+                      type="text"
+                      placeholder="date"
+                      className={('outlineNone', styles.titleInput)}
+                      {...register('date')}
                     />
                     <ButtonComponents
                       title="Post"
