@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import { combineReducers } from 'redux';
 import detailReducer from './detail';
 import myRecipeReducer from './myRecipe';

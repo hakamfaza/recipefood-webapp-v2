@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -71,7 +72,7 @@ const Search = () => {
               <input
                 type="text"
                 placeholder="search..."
-                defaultValue={getQuery ? getQuery : ''}
+                defaultValue={getQuery || ''}
                 onChange={(e) => getInput(e)}
               />
               <div>

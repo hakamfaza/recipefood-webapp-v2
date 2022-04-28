@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import styles from '../../assets/styles/styles';
 import style from '../../assets/styles/components/footer/footer.module.css';

@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,7 +37,7 @@ const Login = () => {
       .then((response) => {
         localStorage.setItem('token', response.data.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.data.user));
-        navigate(`/profile`);
+        navigate('/profile');
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +95,7 @@ const Login = () => {
                   Forgot Password ?
                 </a>
                 <p className={styles.txtAuth}>
-                  Don't have an account{' '}
+                  Don`&apos;`t have an account{' '}
                   <a className={styles.txtAuthAction} href="/signup">
                     Sign Up
                   </a>

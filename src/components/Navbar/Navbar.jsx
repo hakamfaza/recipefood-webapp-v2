@@ -1,34 +1,32 @@
+/* eslint-disable indent */
+/* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
 import {
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   Collapse,
   Nav,
   NavItem,
-  NavLink,
-  Button
+  NavLink
 } from 'reactstrap';
 import { BiUserCircle } from 'react-icons/bi';
 import { AiOutlineLogout } from 'react-icons/ai';
 import styles from '../../assets/styles/components/navbar/navbar.module.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarComponent = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [navbar, setNavbar] = useState(false);
   const [getToken, setToken] = useState(true);
 
   useEffect(() => {
-    const getUser = localStorage.getItem('user');
+    // const getUser = localStorage.getItem('user');
     const getToken = localStorage.getItem('token');
     setToken(getToken);
 
-    setUser(JSON.parse(getUser));
-
-    setUser(JSON.parse(getUser));
+    // setUser(JSON.parse(getUser));
   }, []);
 
   const changeBackground = () => {

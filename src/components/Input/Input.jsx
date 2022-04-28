@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 import styles from '../../assets/styles/styles';

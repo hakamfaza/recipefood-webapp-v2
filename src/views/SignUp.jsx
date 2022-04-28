@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
@@ -57,10 +58,6 @@ const SignUp = () => {
       formData.append('phone', form.phone);
       formData.append('password', form.password);
       formData.append('image', image.image);
-
-      for (var key of formData) {
-        console.log(key);
-      }
 
       register(formData)
         .then((response) => {
@@ -143,16 +140,7 @@ const SignUp = () => {
                   placeholder="New Password"
                   onChange={(e) => onChangeInput(e, 'newPassword')}
                 />
-                {/* <p
-                style={
-                  
-                    ? styles.errPasword
-                    : styles.displayErrPasword
-                }
-                // onSubmit={() => setPasswordMessage(false)}
-              >
-                password is not the same, please check again!
-              </p> */}
+
                 <FormGroup className={styles.checkboxAuth} check>
                   <Label className={styles.textChecbox} check>
                     <Input

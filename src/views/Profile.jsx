@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// import { useNavigate, Link } from 'react-router-dom';
 
 import {
   Nav,
@@ -24,7 +26,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
 
 const Profile = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [user, setUser] = useState({});

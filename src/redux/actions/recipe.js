@@ -1,8 +1,9 @@
+/* eslint-disable semi */
 import axios from 'axios';
 
 export const getRecipe = (searchRecipe, getPage, limit) => {
-  const search = searchRecipe ? searchRecipe : '';
-  const pageValue = getPage ? getPage : 1;
+  const search = searchRecipe || '';
+  const pageValue = getPage || 1;
   console.log(pageValue);
   return {
     type: 'GET_LIST_RECIPE',

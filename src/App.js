@@ -1,3 +1,5 @@
+/* eslint-disable space-before-function-paren */
+/* eslint-disable semi */
 import React from 'react';
 import Router from './router/index';
 import 'bootstrap/dist/css/bootstrap.min.css';

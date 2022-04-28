@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import { COLORS } from '../../utils/colors';
 
 const styles = {

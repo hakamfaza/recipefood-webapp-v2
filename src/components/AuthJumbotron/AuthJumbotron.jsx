@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import styles from '../../assets/styles/views/auth.module.css';
 import logo from '../../assets/img/logo.svg';

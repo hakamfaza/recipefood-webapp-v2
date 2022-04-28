@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 const initialState = {
   data: [],
   isLoading: false,

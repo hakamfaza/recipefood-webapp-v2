@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import styles from '../../assets/styles/styles';
 

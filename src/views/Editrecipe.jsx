@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
@@ -26,7 +27,7 @@ const AddRecipe = () => {
     // console.log(data);
     const getToken = localStorage.getItem('token');
 
-    for (var key of formData) {
+    for (const key of formData) {
       console.log(key);
     }
 

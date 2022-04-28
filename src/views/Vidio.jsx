@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import CardVidio from '../components/CardVidio/CardVidio';
@@ -24,8 +25,6 @@ const Vidio = () => {
                   title="YouTube video player"
                   allowtransparency="true"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  frameborder="0"
-                  allowfullscreen
                   className={styles.vidio}
                 />
                 <div className={styles.titleVidio}>

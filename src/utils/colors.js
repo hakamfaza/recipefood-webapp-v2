@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 export const COLORS = {
   primryColor: '#FFFFFF',
   secondaryColor: '#EFC81A',

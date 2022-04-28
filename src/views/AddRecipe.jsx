@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar/Navbar';
@@ -21,11 +22,10 @@ const AddRecipe = () => {
     formData.append('ingredients', data.ingredients);
     formData.append('vidio', data.vidio);
     formData.append('date', data.date);
-    // console.log(data.file);
-    // console.log(data);
+
     const getToken = localStorage.getItem('token');
 
-    for (var key of formData) {
+    for (const key of formData) {
       console.log(key);
     }
 

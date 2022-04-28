@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import React from 'react';
 import styles from '../../assets/styles/components/card.module.css';
 // import { Link } from 'react-router-dom';

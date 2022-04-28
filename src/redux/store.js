@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import promisMiddleware from 'redux-promise-middleware';
