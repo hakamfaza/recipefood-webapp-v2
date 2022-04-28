@@ -1,6 +1,8 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable semi */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar/Navbar';
 import styles from '../assets/styles/views/addrecipe.module.css';
@@ -11,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import { getDetail, upadateRecipe } from '../redux/actions/recipe';
 
 const AddRecipe = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -46,7 +49,14 @@ const AddRecipe = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getDetail(id));
+    dispatch(getDetail(id))
+      .then((response) => {
+        console.log(response.data);
+        navigate('/profile');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
