@@ -54,6 +54,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getRecipe('', 1, 6));
+    document.title = `${process.env.REACT_APP_NAME} | Web App`;
+    window.scrollTo(0, 0);
   }, []);
 
   // New Recipe
@@ -153,7 +155,7 @@ const Home = () => {
               <div className={styles.bgObject} />
               <div className={styles.boxCard}>
                 <CardMedium
-                  src={`${process.env.REACT_APP_API_URL}/image/${newRecipe.image}`}
+                  src={`${process.env.REACT_APP_API_URL}/${newRecipe.image}`}
                 />
               </div>
             </div>
@@ -181,7 +183,7 @@ const Home = () => {
                 <div className="col-md-4" key={index}>
                   <Link to={`/item/${item.id}`}>
                     <Card
-                      src={`${process.env.REACT_APP_API_URL}/image/${item.image}`}
+                      src={`${process.env.REACT_APP_API_URL}/${item.image}`}
                       title={item.title}
                       alt={item.title}
                     />

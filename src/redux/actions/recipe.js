@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getRecipe = (searchRecipe, getPage, limit) => {
   const search = searchRecipe || '';
   const pageValue = getPage || 1;
-  console.log(pageValue);
+  console.log(pageValue, search, limit);
   return {
     type: 'GET_LIST_RECIPE',
     payload: axios({
