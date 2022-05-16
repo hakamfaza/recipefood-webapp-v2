@@ -35,9 +35,8 @@ const Login = () => {
 
     login(body)
       .then((response) => {
-        localStorage.setItem('token', response.data.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.data.user));
-        navigate('/profile');
+        console.log(response);
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
@@ -91,16 +90,16 @@ const Login = () => {
                   className={styles.buttonSubmit}
                   title="Submit"
                 />
-                <a className={styles.txtForgotPassword} href="/">
-                  Forgot Password ?
-                </a>
-                <p className={styles.txtAuth}>
-                  Don`&apos;`t have an account{' '}
-                  <a className={styles.txtAuthAction} href="/signup">
-                    Sign Up
-                  </a>
-                </p>
               </Form>
+              <a className={styles.txtForgotPassword} href="/">
+                Forgot Password ?
+              </a>
+              <p className={styles.txtAuth}>
+                Don`&apos;`t have an account{' '}
+                <a className={styles.txtAuthAction} href="/signup">
+                  Sign Up
+                </a>
+              </p>
             </div>
           </div>
         </div>
