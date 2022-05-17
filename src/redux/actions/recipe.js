@@ -15,10 +15,14 @@ export const getRecipe = (searchRecipe, getPage, limit) => {
 };
 
 export const getDetail = (id) => {
+  const token = localStorage.getItem('token');
   return {
     type: 'GET_DETAIL_RECIPE',
     payload: axios({
       url: `${process.env.REACT_APP_API_URL}/recipe/${id}`,
+      headers: {
+        token
+      },
       method: 'GET'
     })
   };
