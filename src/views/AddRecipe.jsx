@@ -21,7 +21,6 @@ const AddRecipe = () => {
     formData.append('title', data.title);
     formData.append('ingredients', data.ingredients);
     formData.append('vidio', data.vidio);
-    formData.append('date', data.date);
 
     const getToken = localStorage.getItem('token');
 
@@ -76,12 +75,6 @@ const AddRecipe = () => {
                       placeholder="Vidio"
                       className={('outlineNone', styles.titleInput)}
                       {...register('vidio')}
-                    />
-                    <input
-                      type="text"
-                      placeholder="date"
-                      className={('outlineNone', styles.titleInput)}
-                      {...register('date')}
                     />
                     <ButtonComponents
                       title="Post"
