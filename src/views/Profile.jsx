@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
@@ -78,20 +79,24 @@ const Profile = () => {
               <div className="col-sm">
                 <div className={styles.boxUserProfile}>
                   <div className={styles.userProfile}>
-                    <img
-                      src={
-                        user.image
-                          ? `${process.env.REACT_APP_API_URL}/${user.image}`
-                          : `${process.env.REACT_APP_API_URL}/profile.jpg`
-                      }
-                      alt="User Profile"
-                      className={styles.userImage}
-                    />
+                    {user ? (
+                      <img
+                        src={
+                          user.image
+                            ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                            : `${process.env.REACT_APP_API_URL}/profile.jpg`
+                        }
+                        alt="User Profile"
+                        className={styles.userImage}
+                      />
+                    ) : null}
                     <a href="profile" className={styles.iconLink}>
                       <FiEdit className={styles.editIcon} />
                     </a>
                   </div>
-                  <h1 className={styles.titleUserProfile}>{user.name}</h1>
+                  {user ? (
+                    <h1 className={styles.titleUserProfile}>{user.name}</h1>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -136,35 +141,39 @@ const Profile = () => {
                     <TabPane tabId="1">
                       <div className="container">
                         <div className={styles.boxCardRecipe}>
-                          <div className="row">
-                            {getRecipe.data.map((item, index) => (
-                              <div className="col-md-4" key={index}>
-                                <div className={styles.boxCardRecipeProfile}>
-                                  <Link to={`/item/${item.id}`}>
-                                    <CardSmall
-                                      src={`${process.env.REACT_APP_API_URL}/${item.image}`}
-                                      title={item.title}
-                                      alt={item.title}
-                                      edit="/edit"
-                                    />
-                                  </Link>
-                                  <div className={styles.boxActionRecipe}>
-                                    <Link to={`/edit/${item.id}`}>
-                                      <Edit />
+                          {getRecipe.data ? (
+                            <div className="row">
+                              {getRecipe.data.map((item, index) => (
+                                <div className="col-md-4" key={index}>
+                                  <div className={styles.boxCardRecipeProfile}>
+                                    <Link to={`/item/${item.id}`}>
+                                      <CardSmall
+                                        src={`${process.env.REACT_APP_API_URL}/${item.image}`}
+                                        title={item.title}
+                                        alt={item.title}
+                                        edit="/edit"
+                                      />
                                     </Link>
-                                    <Form onClick={() => setIdRecipe(item.id)}>
-                                      <Button
-                                        className={styles.btn}
-                                        onClick={() => onDeleteRecipe()}
+                                    <div className={styles.boxActionRecipe}>
+                                      <Link to={`/edit/${item.id}`}>
+                                        <Edit />
+                                      </Link>
+                                      <Form
+                                        onClick={() => setIdRecipe(item.id)}
                                       >
-                                        <Delete />
-                                      </Button>
-                                    </Form>
+                                        <Button
+                                          className={styles.btn}
+                                          onClick={() => onDeleteRecipe()}
+                                        >
+                                          <Delete />
+                                        </Button>
+                                      </Form>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            ))}
-                          </div>
+                              ))}
+                            </div>
+                          ) : null}
                         </div>
                       </div>
                     </TabPane>
