@@ -41,15 +41,17 @@
 
 .cardTitle {
   position: absolute;
-  max-width: 170px;
+  /* max-width: 170px; */
   left: 15px;
   bottom: 10px;
   font-weight: 600;
   color: #fff;
   font-family: airbnb;
-  /* background-color: #efc81a; */
-  padding: 1px 5px 1px 5px;
-  border-radius: 5px;
+  background-color: #efc81a;
+  padding: 1px 5px 3px 5px;
+  border-radius: 3px;
+  border-top-left-radius: 12px;
+  border-end-end-radius: 12px;
 }
 
 .boxOfTitle {

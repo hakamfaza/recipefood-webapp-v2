@@ -1,3 +1,5 @@
+/* eslint-disable multiline-ternary */
+/* eslint-disable indent */
 /* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,16 +19,16 @@ import '../assets/styles/style.css';
 import bgVector from '../assets/img/bgvector.webp';
 import vegetable from '../assets/img/vegetable.webp';
 import foodOne from '../assets/img/foodone.webp';
-import burger from '../assets/img/burger.jpg';
-import pizza from '../assets/img/pizza.jpg';
+import burger from '../assets/img/burger.webp';
+import pizza from '../assets/img/pizza.webp';
+import salmon from '../assets/img/salmon.webp';
 
 import { getRecipe } from '../redux/actions/recipe';
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const [newRecipe, setNewRecipe] = useState([]);
-  const [searchRecipe, setSearchRecipe] = useState();
+  const [searchRecipe, setSearchRecipe] = useState('');
 
   const getTitle = (e, field) => {
     setSearchRecipe({
@@ -56,15 +58,6 @@ const Home = () => {
     dispatch(getRecipe('', 1, 6));
     document.title = `${process.env.REACT_APP_NAME} | Web App`;
     window.scrollTo(0, 0);
-  }, []);
-
-  // New Recipe
-  const getNewRecipe = useSelector((state) => {
-    return state.recipe.data[0];
-  });
-
-  useEffect(() => {
-    setNewRecipe(getNewRecipe);
   }, []);
 
   return (
@@ -154,20 +147,18 @@ const Home = () => {
             <div className="col-sm" style={style.containerNewRecipe}>
               <div className={styles.bgObject} />
               <div className={styles.boxCard}>
-                <CardMedium
-                  src={`${process.env.REACT_APP_API_URL}/${newRecipe.image}`}
-                />
+                <CardMedium src={salmon} />
               </div>
             </div>
             <div className="col-sm " style={style.boxAboutRecipe}>
               <div className={styles.boxAboutRecipe}>
-                <h1 className={styles.aboutTitle}>{newRecipe.title}</h1>
+                <h1 className={styles.aboutTitle}>Sugar Salmon</h1>
                 <div className={styles.line} />
                 <p className={styles.textAbout}>
-                  Quick + Easy {newRecipe.title}- Healthy {newRecipe.title} in a
-                  hurry? That’s right!
+                  Quick + Easy Sugar Salmon - Healthy sugar salmon in a hurry?
+                  That’s right!
                 </p>
-                <Link to={`/item/${newRecipe.id}`}>
+                <Link to="/">
                   <button className="button">Learn More</button>
                 </Link>
               </div>
@@ -179,17 +170,19 @@ const Home = () => {
           <h1 className={styles.titlePopular}>Latest Recipe</h1>
           <div className="container">
             <div className="row" style={style.boxOfCard}>
-              {recipe.data.map((item, index) => (
-                <div className="col-md-4" key={index}>
-                  <Link to={`/item/${item.id}`}>
-                    <Card
-                      src={`${process.env.REACT_APP_API_URL}/${item.image}`}
-                      title={item.title}
-                      alt={item.title}
-                    />
-                  </Link>
-                </div>
-              ))}
+              {recipe.isLoading
+                ? null
+                : recipe.data.map((item, index) => (
+                    <div className="col-md-4" key={index}>
+                      <Link to={`/item/${item.id}`}>
+                        <Card
+                          src={`${process.env.REACT_APP_API_URL}/${item.image}`}
+                          title={item.title}
+                          alt={item.title}
+                        />
+                      </Link>
+                    </div>
+                  ))}
             </div>
           </div>
         </div>

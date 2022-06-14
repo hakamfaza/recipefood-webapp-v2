@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable semi */
 import React, { useEffect, useState } from 'react';
-// import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import {
   Nav,
@@ -26,7 +26,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
 
 const Profile = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [user, setUser] = useState({});
@@ -38,22 +38,24 @@ const Profile = () => {
   const getRecipe = useSelector((state) => {
     return state.myRecipe;
   });
-  console.log(getRecipe.data);
 
   const getToken = localStorage.getItem('token');
-  const getUser = localStorage.getItem('user');
-  useEffect(() => {
-    setUser(JSON.parse(getUser));
 
-    dispatch(getMyRecipe(getToken));
+  const getUser = useSelector((state) => {
+    return state.getUser.data;
+  });
+
+  useEffect(() => {
+    dispatch(getMyRecipe());
+    setUser(getUser);
   }, []);
 
   const onDeleteRecipe = () => {
     deleteRecipe(getIdRecipe, getToken)
       .then((res) => {
         console.log(res);
-        // navigate('/profile');
-        getMyRecipe(getToken);
+        navigate('/profile');
+        getMyRecipe();
       })
       .catch((err) => {
         console.log(err);
@@ -75,7 +77,7 @@ const Profile = () => {
                 <div className={styles.boxUserProfile}>
                   <div className={styles.userProfile}>
                     <img
-                      src={`${process.env.REACT_APP_API_URL}/image/${user.image}`}
+                      src={`${process.env.REACT_APP_API_URL}/${user.image}`}
                       alt="User Profile"
                       className={styles.userImage}
                     />
@@ -134,7 +136,7 @@ const Profile = () => {
                                 <div className={styles.boxCardRecipeProfile}>
                                   <Link to={`/item/${item.id}`}>
                                     <CardSmall
-                                      src={`${process.env.REACT_APP_API_URL}/image/${item.image}`}
+                                      // src={`${process.env.REACT_APP_API_URL}/${item.image}`}
                                       title={item.title}
                                       alt={item.title}
                                       edit="/edit"

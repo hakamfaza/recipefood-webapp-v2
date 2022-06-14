@@ -16,6 +16,7 @@ export const getRecipe = (searchRecipe, getPage, limit) => {
 
 export const getDetail = (id) => {
   const token = localStorage.getItem('token');
+  console.log(id);
   return {
     type: 'GET_DETAIL_RECIPE',
     payload: axios({
@@ -28,13 +29,14 @@ export const getDetail = (id) => {
   };
 };
 
-export const getMyRecipe = (getToken) => {
+export const getMyRecipe = () => {
+  const token = localStorage.getItem('token');
   return {
     type: 'GET_MY_RECIPE',
     payload: axios({
-      url: `${process.env.REACT_APP_API_URL}/recipeUser`,
+      url: `${process.env.REACT_APP_API_URL}/recipe-by-user`,
       headers: {
-        token: getToken
+        token
       }
     })
   };

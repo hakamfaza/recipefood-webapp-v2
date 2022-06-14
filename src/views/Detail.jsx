@@ -19,6 +19,7 @@ const Detail = () => {
   const recipe = useSelector((state) => {
     return state.detail;
   });
+  console.log(recipe);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,12 +37,12 @@ const Detail = () => {
                 <div className={styles.detailImage}>
                   <div className="col-sm">
                     <h1 className={styles.titleDetailRecipe}>
-                      {recipe.data.title}
+                      {/* {recipe.data.title} */}
                     </h1>
                     <div className={styles.boxImageDetail}>
                       <img
-                        src={`${process.env.REACT_APP_API_URL}/${recipe.data.image}`}
-                        alt={recipe.data.title}
+                        // src={`${process.env.REACT_APP_API_URL}/${recipe.data.image}`}
+                        // alt={recipe.data.title}
                         className={styles.imageRecipe}
                       />
                       <div className={styles.boxIcon}>
@@ -56,7 +57,7 @@ const Detail = () => {
                 <div className="row col-sm">
                   <h2 className={styles.titleRecipe}>Ingredients</h2>
                   <p className={styles.ingredients}>
-                    {recipe.data.ingredients}
+                    {/* {recipe.data.ingredients} */}
                   </p>
                   <h2 className={styles.titleRecipe}>Detail Vidio</h2>
                   <Link to="/vidio">
