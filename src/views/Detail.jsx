@@ -36,9 +36,12 @@ const Detail = () => {
               <div className="row">
                 <div className={styles.detailImage}>
                   <div className="col-sm">
-                    <h1 className={styles.titleDetailRecipe}>
-                      {recipe.data.title}
-                    </h1>
+                    {recipe.data ? (
+                      <h1 className={styles.titleDetailRecipe}>
+                        {recipe.data.title}
+                      </h1>
+                    ) : null}
+
                     {recipe.data ? (
                       <div className={styles.boxImageDetail}>
                         <img
