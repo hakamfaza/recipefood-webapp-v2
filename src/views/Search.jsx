@@ -88,7 +88,7 @@ const Search = () => {
               return (
                 <div className="col-md-3" key={i}>
                   <CardResult
-                    src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                    src={`${process.env.REACT_APP_API_URL}/${e.image}`}
                     title={e.title}
                     date={e.date}
                     href={`/item/${e.id}`}
