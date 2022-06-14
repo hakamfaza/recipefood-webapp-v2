@@ -40,6 +40,7 @@ const Profile = () => {
   });
 
   const getToken = localStorage.getItem('token');
+  // console.log(getToken);
 
   const getUser = useSelector((state) => {
     return state.getUser.data;
@@ -136,7 +137,7 @@ const Profile = () => {
                                 <div className={styles.boxCardRecipeProfile}>
                                   <Link to={`/item/${item.id}`}>
                                     <CardSmall
-                                      // src={`${process.env.REACT_APP_API_URL}/${item.image}`}
+                                      src={`${process.env.REACT_APP_API_URL}/${item.image}`}
                                       title={item.title}
                                       alt={item.title}
                                       edit="/edit"
