@@ -24,6 +24,7 @@ import Delete from '../components/Delete/Delete';
 import Edit from '../components/Edit/Edit';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
+import { getUser } from '../redux/actions/user';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -40,15 +41,15 @@ const Profile = () => {
   });
 
   const getToken = localStorage.getItem('token');
-  // console.log(getToken);
 
-  const getUser = useSelector((state) => {
+  const geMytUser = useSelector((state) => {
     return state.getUser.data;
   });
 
   useEffect(() => {
     dispatch(getMyRecipe());
-    setUser(getUser);
+    dispatch(getUser());
+    setUser(geMytUser);
   }, []);
 
   const onDeleteRecipe = () => {
@@ -78,7 +79,11 @@ const Profile = () => {
                 <div className={styles.boxUserProfile}>
                   <div className={styles.userProfile}>
                     <img
-                      src={`${process.env.REACT_APP_API_URL}/${user.image}`}
+                      src={
+                        user.image
+                          ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                          : `${process.env.REACT_APP_API_URL}/profile.jpg`
+                      }
                       alt="User Profile"
                       className={styles.userImage}
                     />

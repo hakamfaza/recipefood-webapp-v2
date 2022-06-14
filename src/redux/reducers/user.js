@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const getUserReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case 'GET_DETAIL_USER_PENDING':
       return { ...state, isLoading: true };

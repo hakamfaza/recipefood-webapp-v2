@@ -16,7 +16,6 @@ export const getRecipe = (searchRecipe, getPage, limit) => {
 
 export const getDetail = (id) => {
   const token = localStorage.getItem('token');
-  console.log(id);
   return {
     type: 'GET_DETAIL_RECIPE',
     payload: axios({
