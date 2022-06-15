@@ -5,7 +5,6 @@ Food Recipes is a website that provides interaction between users to share food 
 
 ## Demo
 
-### Back End
 ##### Link Back End
 * https://api-recipe-food.herokuapp.com/
 * https://github.com/hakamfaza/RESTfull_API_FoodRecipe
