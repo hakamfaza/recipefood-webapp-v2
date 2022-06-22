@@ -49,9 +49,11 @@ Start the server
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`REACT_APP_NAME`
+```
+REACT_APP_NAME=
 
-`REACT_APP_API_URL`
+REACT_APP_API_URL=
+```
 ## Features
 
 ### Landing
