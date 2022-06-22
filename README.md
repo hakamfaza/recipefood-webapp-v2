@@ -109,7 +109,7 @@ If you find a bug (the website couldn't handle the query and / or gave undesired
 If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
 
 
-# Back End
+## Back End
 * https://api-recipe-food.herokuapp.com/
 * https://github.com/hakamfaza/RESTfull_API_FoodRecipe
 
