@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-<img src="https://i.postimg.cc/65pLzxB6/Group-4.png" width="200" height="230" cover />
+<img src="https://i.postimg.cc/65pLzxB6/Group-4.png" width="auto" height="230" cover />
  </div>
  <div align="center">
   <br />
@@ -34,7 +34,6 @@ Here is a working live demo https://recipefood-webapp-v2.vercel.app/
 **Client:** React, Redux, CSS, Bootstrap
 
 **Server:** Node, Express
-
 
 ## Run Locally
 
@@ -89,7 +88,7 @@ REACT_APP_API_URL=
 ### My Recipe
   [![Screenshot-2022-06-14-221009.png](https://i.postimg.cc/fLTPxmyt/Screenshot-2022-06-14-221009.png)](https://postimg.cc/xkhgQkKn)
   
-  ### Development
+ ## Development
 Want to contribute? Great!
 
 To fix a bug or enhance an existing module, follow these steps:
@@ -102,7 +101,7 @@ To fix a bug or enhance an existing module, follow these steps:
 - Push to the branch (`git push origin improve-feature`)
 - Create a Pull Request 
 
-### Bug / Feature Request
+## Bug / Feature Request
 
 If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/iharsh234/WebApp/issues/new) by including your search query and the expected result.
 
