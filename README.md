@@ -1,12 +1,30 @@
-
-<h1 align="center">Recipe Food App</h1>
-
-Food Recipes is a website that provides interaction between users to share food recipes. This website is used to share food recipes, so users can share food recipes, as well as get inspiration to try new recipes from other users. Before users can view / share recipes, users are required to log in or register an account first
-
 <br/>
 <div align="center">
-<img src="https://i.postimg.cc/65pLzxB6/Group-4.png" />
+<img src="https://i.postimg.cc/65pLzxB6/Group-4.png" width="200" height="230" cover />
  </div>
+ <div align="center">
+  <br />
+  <br />
+  <a href="https://github.com/dec0dOS/amazing-github-template/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  ·
+  <a href="https://github.com/dec0dOS/amazing-github-template/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  .
+  <a href="https://github.com/dec0dOS/amazing-github-template/discussions">Ask a Question</a>
+</div>
+
+<div align="center">
+<br />
+
+[![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
+
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/dec0dOS/amazing-github-template/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+[![made with hearth by hakamfaza](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-hakamfaza-ff1414.svg?style=flat-square)](https://github.com/hakamfaza)
+
+</div>
+
+## Recipe Food App
+
+Food Recipes is a website that provides interaction between users to share food recipes. This website is used to share food recipes, so users can share food recipes, as well as get inspiration to try new recipes from other users. Before users can view / share recipes, users are required to log in or register an account first
 
 ## Demo
 Here is a working live demo https://recipefood-webapp-v2.vercel.app/
