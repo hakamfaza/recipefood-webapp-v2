@@ -109,8 +109,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 
 ## Back End
-* https://api-recipe-food.herokuapp.com/
-* https://github.com/hakamfaza/RESTfull_API_FoodRecipe
+https://github.com/hakamfaza/RESTfull_API_FoodRecipe
 
 ## Contact
 
