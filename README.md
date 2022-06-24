@@ -24,7 +24,7 @@
 
 ## Recipe Food App
 
-Food Recipes is a website that provides interaction between users to share food recipes. This website is used to share food recipes, so users can share food recipes, as well as get inspiration to try new recipes from other users. Before users can view / share recipes, users are required to log in or register an account first
+Food Recipes is a website that provides interaction between users to share food recipes. Users can share food recipes, as well as get inspiration to try new recipes from other users. Before users can view / share recipes, users are required to log in or register an account first
 
 ## Demo
 Here is a working live demo https://recipefood-webapp-v2.vercel.app/
