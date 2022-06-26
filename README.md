@@ -75,8 +75,10 @@ REACT_APP_API_URL=
 
 ### Landing
   [![Screenshot-2022-06-15-004803.png](https://i.postimg.cc/G2w2t3m5/Screenshot-2022-06-15-004803.png)](https://postimg.cc/Z9HZDS38)
-### Auth
+### Login
   [![Screenshot-2022-06-15-004926.png](https://i.postimg.cc/brYqSZc3/Screenshot-2022-06-15-004926.png)](https://postimg.cc/0M4TL2Nw)
+### Register
+  [![Screenshot-2022-06-26-214322.png](https://i.postimg.cc/pXx81D6v/Screenshot-2022-06-26-214322.png)](https://postimg.cc/kD1B2tCY)
 ### Latest Recipe
   [![Screenshot-2022-06-15-005615.png](https://i.postimg.cc/dQXqVtNm/Screenshot-2022-06-15-005615.png)](https://postimg.cc/jCHV8KbL)
 ### Read Recipe
