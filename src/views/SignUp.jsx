@@ -10,9 +10,8 @@ import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
 
 import { register } from '../redux/actions/auth';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-
-// import user from '../assets/img/user.png';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -41,7 +40,6 @@ const SignUp = () => {
 
   // when submitted
   const onSubmit = (e) => {
-    console.log(image);
     e.preventDefault();
 
     if (form.password !== form.newPassword) {
@@ -61,11 +59,28 @@ const SignUp = () => {
 
       register(formData)
         .then((response) => {
-          console.log(response.data);
-          navigate('/login');
+          if (response.data.code === 500) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: response.data.message
+            });
+          } else {
+            Swal.fire({
+              icon: 'success',
+              title: response.data.messaage,
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/login');
+          }
         })
         .catch((err) => {
-          console.log(err);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.message
+          });
         });
     }
   };
@@ -119,7 +134,7 @@ const SignUp = () => {
                   id="number"
                   name="number"
                   type="text"
-                  placeholder="08xxxxxxxxxx"
+                  placeholder="Enter phone number"
                   onChange={(e) => onChangeInput(e, 'phone')}
                 />
                 <InputAuth
