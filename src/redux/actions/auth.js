@@ -26,7 +26,6 @@ export const login = (body) => {
         resolve(response);
         localStorage.setItem('token', response.data.token.token);
         localStorage.setItem('id', response.data.token.id);
-        alert('login sucess');
       })
       .catch((err) => {
         reject(err);

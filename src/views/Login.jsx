@@ -11,6 +11,7 @@ import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
 import { login } from '../redux/actions/auth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,11 +36,28 @@ const Login = () => {
 
     login(body)
       .then((response) => {
-        console.log(response);
-        navigate('/');
+        if (response.data.code === 500) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.data.message
+          });
+        } else {
+          Swal.fire({
+            icon: 'success',
+            title: response.data.messaage,
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/');
+        }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.message
+        });
       });
   };
 
@@ -68,7 +86,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="examplexxx@gmail.com"
+                  placeholder="Enter email address"
                   onChange={(e) => onChangeInput(e, 'email')}
                 />
                 <InputAuth
@@ -77,7 +95,7 @@ const Login = () => {
                   id="password"
                   name="password"
                   type="password"
-                  placeholder="password"
+                  placeholder="Enter password"
                   onChange={(e) => onChangeInput(e, 'password')}
                 />
                 <FormGroup className={styles.checkboxAuth} check>
@@ -95,7 +113,7 @@ const Login = () => {
                 Forgot Password ?
               </a>
               <p className={styles.txtAuth}>
-                Don`&apos;`t have an account{' '}
+                Don`t have an account{' '}
                 <a className={styles.txtAuthAction} href="/signup">
                   Sign Up
                 </a>
