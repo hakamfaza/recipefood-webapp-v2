@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable multiline-ternary */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable semi */
@@ -26,6 +27,7 @@ import Edit from '../components/Edit/Edit';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyRecipe, deleteRecipe } from '../redux/actions/recipe';
 import { getUser } from '../redux/actions/user';
+import Swal from 'sweetalert2';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -34,8 +36,6 @@ const Profile = () => {
   const [user, setUser] = useState({});
 
   const [toggleState, setToggleState] = useState(1);
-
-  const [getIdRecipe, setIdRecipe] = useState([]);
 
   const getRecipe = useSelector((state) => {
     return state.myRecipe;
@@ -53,16 +53,33 @@ const Profile = () => {
     setUser(geMytUser);
   }, []);
 
-  const onDeleteRecipe = () => {
-    deleteRecipe(getIdRecipe, getToken)
-      .then((res) => {
-        console.log(res);
-        navigate('/profile');
-        getMyRecipe();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const onDeleteRecipe = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteRecipe(id, getToken)
+          .then((res) => {
+            res;
+            Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+            navigate('/profile');
+            dispatch(getMyRecipe());
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.message
+            });
+          });
+      }
+    });
   };
 
   const toggleTab = (index) => {
@@ -158,16 +175,12 @@ const Profile = () => {
                                       <Link to={`/edit/${item.id}`}>
                                         <Edit />
                                       </Link>
-                                      <Form
-                                        onClick={() => setIdRecipe(item.id)}
+                                      <Button
+                                        className={styles.btn}
+                                        onClick={() => onDeleteRecipe(item.id)}
                                       >
-                                        <Button
-                                          className={styles.btn}
-                                          onClick={() => onDeleteRecipe()}
-                                        >
-                                          <Delete />
-                                        </Button>
-                                      </Form>
+                                        <Delete />
+                                      </Button>
                                     </div>
                                   </div>
                                 </div>
