@@ -5,15 +5,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-import {
-  Nav,
-  NavItem,
-  NavLink,
-  TabContent,
-  TabPane,
-  Button,
-  Form
-} from 'reactstrap';
+import { Nav, NavItem, NavLink, TabContent, TabPane, Button } from 'reactstrap';
 
 import Navbar from '../components/Navbar/Navbar';
 import CardSmall from '../components/CardSmall/CardSmall';
@@ -52,6 +44,10 @@ const Profile = () => {
     dispatch(getUser());
     setUser(geMytUser);
   }, []);
+
+  const onEdit = (id) => {
+    navigate(`/edit/${id}`);
+  };
 
   const onDeleteRecipe = (id) => {
     Swal.fire({
@@ -161,7 +157,7 @@ const Profile = () => {
                           {getRecipe.data ? (
                             <div className="row">
                               {getRecipe.data.map((item, index) => (
-                                <div className="col-md-4" key={index}>
+                                <div className="col-md" key={index}>
                                   <div className={styles.boxCardRecipeProfile}>
                                     <Link to={`/item/${item.id}`}>
                                       <CardSmall
@@ -172,9 +168,12 @@ const Profile = () => {
                                       />
                                     </Link>
                                     <div className={styles.boxActionRecipe}>
-                                      <Link to={`/edit/${item.id}`}>
+                                      <Button
+                                        className={styles.btn}
+                                        onClick={() => onEdit(item.id)}
+                                      >
                                         <Edit />
-                                      </Link>
+                                      </Button>
                                       <Button
                                         className={styles.btn}
                                         onClick={() => onDeleteRecipe(item.id)}
