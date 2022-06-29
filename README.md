@@ -76,9 +76,9 @@ REACT_APP_API_URL=
 ### Landing
   [![Screenshot-2022-06-15-004803.png](https://i.postimg.cc/G2w2t3m5/Screenshot-2022-06-15-004803.png)](https://postimg.cc/Z9HZDS38)
 ### Login
-  [![Screenshot-2022-06-15-004926.png](https://i.postimg.cc/brYqSZc3/Screenshot-2022-06-15-004926.png)](https://postimg.cc/0M4TL2Nw)
+  [![Fire-Shot-Capture-007-Recipe-Food-Web-App-recipefood-webapp-v2-vercel-app.png](https://i.postimg.cc/1t0RhXzK/Fire-Shot-Capture-007-Recipe-Food-Web-App-recipefood-webapp-v2-vercel-app.png)](https://postimg.cc/S2sbcyCX)
 ### Register
-  [![Screenshot-2022-06-26-214322.png](https://i.postimg.cc/pXx81D6v/Screenshot-2022-06-26-214322.png)](https://postimg.cc/kD1B2tCY)
+  [![Fire-Shot-Capture-011-Recipe-Food-Web-App-recipefood-webapp-v2-vercel-app.png](https://i.postimg.cc/MT0s72sT/Fire-Shot-Capture-011-Recipe-Food-Web-App-recipefood-webapp-v2-vercel-app.png)](https://postimg.cc/zbBSNMYZ)
 ### Latest Recipe
   [![Screenshot-2022-06-15-005615.png](https://i.postimg.cc/dQXqVtNm/Screenshot-2022-06-15-005615.png)](https://postimg.cc/jCHV8KbL)
 ### Read Recipe
