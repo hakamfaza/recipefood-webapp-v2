@@ -120,7 +120,7 @@ const SignUp = () => {
                   onChange={(e) => onChangeInput(e, 'name')}
                 />
                 <InputAuth
-                  title="Email Adsress"
+                  title="Email Adress"
                   for="email"
                   id="email"
                   name="email"
